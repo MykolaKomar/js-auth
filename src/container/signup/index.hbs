@@ -15,12 +15,18 @@
             <div class="form__item">
                 {{> field action="signupForm.change" label="Ел.адреса" type="email" name="email"
                 placeholder="Ваш e-mail"}}
-                <span class="form__error">Помилка</span>
+                <span name="email" class="form__error">Помилка</span>
             </div>
             <div class="form__item">
                 {{> field-password action="signupForm.change" label="Пароль" type="password" name="password"
                 placeholder="Введіть пароль"}}
-                <span class="form__error">Помилка</span>
+                <span name="password" class="form__error">Помилка</span>
+            </div>
+            <div class="form__item">
+                {{> field-password action="signupForm.change" label="Перевірка паролю" type="password"
+                name="passwordAgain"
+                placeholder="Введіть пароль"}}
+                <span name="passwordAgain" class="form__error">Помилка</span>
             </div>
             <div class="form__item">
                 {{> field-select action="signupForm.change" label="Роль"
@@ -33,8 +39,8 @@
                 <span name="isConfirm" class="form__error">Помилка</span>
             </div>
         </div>
-        <button onclick="signupForm.submit()" class="button" type="button">Зареєструватись</button>
-        <span class="alert alert--error">Увага, помилка! </span>
+        <button onclick="signupForm.submit()" class="button button--disabled" type="button">Зареєструватись</button>
+        <span class="alert alert--disabled">Увага, помилка! </span>
     </form>
 </div>
 
