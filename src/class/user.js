@@ -8,14 +8,19 @@ class User {
   // Статичний приватний масив для списку створених користувачів
   static #list = []
 
+  static #count = 1
+
   // Конструктор -- це спеціальний метод в класах, який викликається
   // автоматично при створенні нового об'єкту
   // constructor (аргументи) {...}
   // конструктор з усіма потрібними значеннями
   constructor({ email, password, role }) {
+    this.id = User.#count++
     this.email = String(email).toLowerCase()
-    this.password = password
+    this.password = String(password)
     this.role = User.#convertRole(role)
+
+    this.isConfirm = false
   }
 
   // Приватний метод який отримує role та перевіряє його
@@ -47,10 +52,14 @@ class User {
   static create(data) {
     // створює нового юзера з данними
     const user = new User(data)
+
+    console.log(user)
     // додає нового юзера в #list через push
     this.#list.push(user)
 
     console.log(this.#list)
+
+    return user
   }
 
   static getByEmail(email) {

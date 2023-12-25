@@ -3,6 +3,7 @@ import {
   REG_EXP_EMAIL,
   REG_EXP_PASSWORD,
 } from '../../script/form'
+import { saveSession } from '../../script/session'
 
 // Клас для форми реєстрації
 class SignupForm extends Form {
@@ -91,6 +92,8 @@ class SignupForm extends Form {
 
         if (res.ok) {
           this.setAlert('success', data.message)
+          saveSession(data.session)
+          location.assign('/')
         } else {
           this.setAlert('error', data.message)
         }
