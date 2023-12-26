@@ -7,9 +7,9 @@ class Confirm {
     this.data = data
   }
   // генерує 4-х значний код
-  static generateCode = () => 
+  static generateCode = () =>
     Math.floor(Math.random() * 9000) + 1000
-  
+
   // створює
   static create = (data) => {
     // кладемо в ліст новий код з даними

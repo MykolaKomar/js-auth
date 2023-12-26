@@ -26,9 +26,7 @@ class FieldSelect {
 
     target.toggleAttribute('active')
 
-    const value = parent.querySelector(
-      '.field__value--placeholder',
-    )
+    const value = parent.querySelector('.field__value')
 
     if (value) {
       value.innerText = target.innerText

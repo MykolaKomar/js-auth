@@ -8,8 +8,8 @@ const { Confirm } = require('../class/confirm')
 const { Session } = require('../class/session')
 
 User.create({
-  email: 'test@mail.com',
-  password: '123QWEqwe',
+  email: `user@mail.com`,
+  password: 123,
   role: 1,
 })
 
@@ -77,7 +77,7 @@ router.post('/signup', function (req, res) {
 
     if (user) {
       return res.status(400).json({
-        message: 'Помилка',
+        message: 'Помилка. Такий користувач вже існує',
       })
     }
 
@@ -288,8 +288,8 @@ router.post('/signup-confirm', function (req, res) {
       })
     }
 
-    // const user = User.getByEmail(session.user.email)
-    // user.isConfirm = true
+    const user = User.getByEmail(session.user.email)
+    user.isConfirm = true
     session.user.isConfirm = true
 
     return res.status(200).json({

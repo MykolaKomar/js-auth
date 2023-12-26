@@ -85,14 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {}
 
   document
-    .querySelector('.link#renew')
+    .querySelector('#renew')
     .addEventListener('click', (e) => {
       e.preventDefault()
 
       const session = getSession()
 
       location.assign(
-        `/signup-confirm?renew=true&email${session.user.email}`,
+        `/signup-confirm?renew=true&email=${session.user.email}`,
       )
     })
 })
